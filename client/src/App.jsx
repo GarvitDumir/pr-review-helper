@@ -6,16 +6,10 @@ export default function App() {
   const [url, setUrl] = useState("");
   const [data, setData] = useState(null);
 
-  const analyze = async () => {
-    try {
-      console.log("BUTTON CLICKED ✅");
-
-      const res = await axios.post(
-        "https://pr-review-backend.onrender.com/api/review",
-        {
-          prUrl: url,
-        }
-      );
+const analyze = () => {
+  console.log("CLICK WORKS");
+  alert("BUTTON WORKS");
+};
 
       console.log("RESPONSE:", res.data);
       setData(res.data);

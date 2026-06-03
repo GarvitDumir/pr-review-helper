@@ -7,11 +7,22 @@ export default function App() {
   const [data, setData] = useState(null);
 
   const analyze = async () => {
-    const res = await axios.post("https://pr-review-backend.onrender.com", {
-      prUrl: url,
-    });
+    try {
+      console.log("BUTTON CLICKED ✅");
 
-    setData(res.data);
+      const res = await axios.post(
+        "https://pr-review-backend.onrender.com/api/review",
+        {
+          prUrl: url,
+        }
+      );
+
+      console.log("RESPONSE:", res.data);
+      setData(res.data);
+    } catch (err) {
+      console.log("ERROR:", err);
+      alert("API failed");
+    }
   };
 
   return (
@@ -21,7 +32,7 @@ export default function App() {
       <input
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-        placeholder="Paste PR URL or any text"
+        placeholder="Paste PR URL"
         style={{ width: "400px", padding: "10px" }}
       />
 
@@ -39,21 +50,21 @@ export default function App() {
 
           <h2>⚠ Issues</h2>
           <ul>
-            {data.issues.map((i, idx) => (
+            {data.issues?.map((i, idx) => (
               <li key={idx}>{i}</li>
             ))}
           </ul>
 
           <h2>🧪 Missing Tests</h2>
           <ul>
-            {data.missingTests.map((t, idx) => (
+            {data.missingTests?.map((t, idx) => (
               <li key={idx}>{t}</li>
             ))}
           </ul>
 
           <h2>✅ Checklist</h2>
           <ul>
-            {data.checklist.map((c, idx) => (
+            {data.checklist?.map((c, idx) => (
               <li key={idx}>{c}</li>
             ))}
           </ul>

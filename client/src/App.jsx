@@ -7,7 +7,7 @@ export default function App() {
   const [data, setData] = useState(null);
 
   const analyze = async () => {
-    const res = await axios.post("http://localhost:5000/api/review", {
+    const res = await axios.post("https://pr-review-backend.onrender.com", {
       prUrl: url,
     });
 

@@ -9,6 +9,21 @@ CODEAURA
 ---
 
 ## 🔗 Project Links
+## 🎥 Demo Video
+
+Watch the complete project demonstration here:
+
+https://www.loom.com/share/03d7bcaba96b4220911e137d690b369f
+
+The demo showcases:
+
+* Project overview and motivation
+* Pull Request analysis workflow
+* Risk scoring and issue detection
+* Missing test case suggestions
+* Review checklist generation
+* Frontend and backend integration
+
 
 ### 📂 GitHub Repository
 https://github.com/GarvitDumir/pr-review-helper.git
